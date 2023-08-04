@@ -1,4 +1,4 @@
-package controller
+package serve
 
 const (
 	Get     = "get"
