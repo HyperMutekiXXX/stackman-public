@@ -13,7 +13,7 @@ type HandlerMap map[*Method]gin.HandlerFunc
 
 type IController interface {
 	LoadRouter(method *Method, handlerFunc gin.HandlerFunc)
-	LoadController(controller *IController)
+	LoadController(controller IController)
 	GetRouterMap() HandlerMap
 	SetRouterMap(handlerMap HandlerMap)
 }
