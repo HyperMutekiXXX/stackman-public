@@ -5,12 +5,16 @@ import (
 	"log"
 )
 
-func Run(addr string) {
+type ServerOption struct {
+	Addr string `json:"addr"`
+}
+
+func Run(opt *ServerOption) {
 	r := gin.Default()
 	r.Use(middlewareBox...)
 	loadMethod(r)
 
-	if err := r.Run(addr); err != nil {
+	if err := r.Run(opt.Addr); err != nil {
 		log.Fatalf("start server err %v", err)
 	}
 }
