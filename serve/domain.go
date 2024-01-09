@@ -23,6 +23,7 @@ func GetRouter() *gin.Engine {
 	r := gin.Default()
 	r.Use(middlewareBox...)
 	loadMethod(r)
+
 	return r
 }
 
