@@ -19,6 +19,13 @@ func Run(opt *ServerOption) {
 	}
 }
 
+func GetRouter() *gin.Engine {
+	r := gin.Default()
+	r.Use(middlewareBox...)
+	loadMethod(r)
+	return r
+}
+
 func loadMethod(r *gin.Engine) {
 	for _, v := range controllerBox {
 		for method, handlerFunc := range v.GetRouterMap() {
